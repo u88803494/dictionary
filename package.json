@@ -6,7 +6,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier '**/*.{js,jsx,ts,tsx}' --write"
+    "format": "prettier '**/*.{js,jsx,ts,tsx}' --write",
+    "type-check": "tsc --pretty -noEmit"
   },
   "dependencies": {
     "next": "12.0.2",
@@ -27,7 +28,8 @@
   },
   "lint-staged": {
     "**/*.{ts,tsx,js,jsx}": [
-      "yarn prettier", 
+      "yarn lint --file --fix",
+      "yarn prettier",
       "yarn format"
     ]
   }
