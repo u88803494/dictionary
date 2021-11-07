@@ -1,11 +1,19 @@
 {
   "name": "dictionary",
-  "private": true,
+  "homepage": "https://dictionary-beta.vercel.app/",
+  "bugs": "https://github.com/u88803494/dictionary/issues",
+  "license": "UNLICENSED",
+  "contributors": [
+    "Hugh Lee <u88803494@gmail.com>"
+  ],
+  "repository": "https://github.com/u88803494/dictionary",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint . --ext ts --ext tsx --ext js",
+    "format": "prettier '**/*.{js,jsx,ts,tsx}' --write",
+    "type-check": "tsc --pretty -noEmit"
   },
   "dependencies": {
     "next": "12.0.2",
@@ -15,8 +23,21 @@
   "devDependencies": {
     "@types/node": "16.11.6",
     "@types/react": "17.0.33",
+    "@typescript-eslint/eslint-plugin": "^5.3.0",
     "eslint": "7",
     "eslint-config-next": "12.0.2",
+    "eslint-config-prettier": "^8.3.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^11.2.6",
+    "prettier": "^2.4.1",
     "typescript": "4.4.4"
+  },
+  "private": true,
+  "lint-staged": {
+    "**/*.{ts,tsx,js,jsx}": [
+      "yarn lint",
+      "yarn prettier",
+      "yarn format"
+    ]
   }
 }
