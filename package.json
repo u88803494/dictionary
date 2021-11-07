@@ -5,7 +5,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint . --ext ts --ext tsx --ext js",
     "format": "prettier '**/*.{js,jsx,ts,tsx}' --write",
     "type-check": "tsc --pretty -noEmit"
   },
@@ -28,7 +28,7 @@
   },
   "lint-staged": {
     "**/*.{ts,tsx,js,jsx}": [
-      "yarn lint --file --fix",
+      "yarn lint",
       "yarn prettier",
       "yarn format"
     ]
