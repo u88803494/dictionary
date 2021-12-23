@@ -1,4 +1,4 @@
-import React from 'react';
+import Link from 'next/link';
 
 const Navbar = () => {
   return (
@@ -18,24 +18,20 @@ const Navbar = () => {
       </div>
       <div className="w-full pb-2 md:flex md:items-center md:justify-between md:pb-0">
         <div className="flex flex-col px-2 md:flex-row">
-          <a
-            href="#"
-            className="py-2 px-2 text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium md:mx-2"
-          >
-            Home
-          </a>
-          <a
-            href="#"
-            className="py-2 px-2 text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium md:mx-2"
-          >
-            About
-          </a>
-          <a
-            href="#"
-            className="py-2 px-2 text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium md:mx-2"
-          >
-            Contact
-          </a>
+          <Link href="/">
+            <a
+              className="py-2 px-2 text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium md:mx-2"
+            >
+              Home
+            </a>
+          </Link>
+          <Link href="/about">
+            <a
+              className="py-2 px-2 text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium md:mx-2"
+            >
+              About
+            </a>
+          </Link>
         </div>
         <div className=" flex item-center">
           <input
