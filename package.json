@@ -11,9 +11,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint . --ext ts --ext tsx --ext js",
+    "lint": "eslint . --ext ts --ext tsx --ext js --fix",
     "format": "prettier '**/*.{js,jsx,ts,tsx}' --write",
-    "type-check": "tsc --pretty -noEmit"
+    "type-check": "tsc --pretty -noEmit",
+    "prepare": "husky install"
   },
   "dependencies": {
     "next": "12.0.2",
@@ -39,7 +40,6 @@
   "lint-staged": {
     "**/*.{ts,tsx,js,jsx}": [
       "yarn lint",
-      "yarn prettier",
       "yarn format"
     ]
   }

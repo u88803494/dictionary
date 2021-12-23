@@ -8,7 +8,10 @@ const Home: NextPage = () => {
     <>
       <Head>
         <title>Dictionary</title>
-        <meta name="description" content="A dictionary to those misunderstood chinese word" />
+        <meta
+          name="description"
+          content="A dictionary to those misunderstood chinese word"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />

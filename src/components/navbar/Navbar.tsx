@@ -5,7 +5,9 @@ const Navbar: FC = () => {
   return (
     <nav className="px-6 py-2 bg-white shadow-md md:flex ">
       <div className="flex justify-between items-center">
-        <div className="text-3xl text-gray-800 font-bold whitespace-nowrap hover:text-gray-800">新典</div>
+        <div className="text-3xl text-gray-800 font-bold whitespace-nowrap hover:text-gray-800">
+          新典
+        </div>
         <div className="md:hidden">
           <button
             type="button"
@@ -20,16 +22,12 @@ const Navbar: FC = () => {
       <div className="w-full pb-2 md:flex md:items-center md:justify-between md:pb-0">
         <div className="flex flex-col px-2 md:flex-row">
           <Link href="/">
-            <a
-              className="py-2 px-2 text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium md:mx-2"
-            >
+            <a className="py-2 px-2 text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium md:mx-2">
               Home
             </a>
           </Link>
           <Link href="/about">
-            <a
-              className="py-2 px-2 text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium md:mx-2"
-            >
+            <a className="py-2 px-2 text-gray-800 rounded hover:bg-gray-900 hover:text-gray-100 hover:font-medium md:mx-2">
               About
             </a>
           </Link>
