@@ -1,6 +1,7 @@
+import { FC } from 'react';
 import Link from 'next/link';
 
-const Navbar = () => {
+const Navbar: FC = () => {
   return (
     <nav className="px-6 py-2 bg-white shadow-md md:flex ">
       <div className="flex justify-between items-center">
