@@ -15,7 +15,9 @@ const Layout: FC = ({ children }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <main>{children}</main>
+      <div className="w-screen min-h-screen pt-16 px-6">
+        <main className="w-screen-xl max-w-screen-xl mx-auto">{children}</main>
+      </div>
     </>
   );
 };
