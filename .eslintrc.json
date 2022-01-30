@@ -10,15 +10,15 @@
     }
   },
   "parserOptions": {
-    "ecmaVersion": 6,
+    "ecmaVersion": "latest",
     "sourceType": "module",
     "ecmaFeatures": {
-      "jsx": true
+      "tsx": true
     }
   },
   "extends": ["next/core-web-vitals", "plugin:@typescript-eslint/recommended", "prettier"],
   "rules": {
     "no-var": "error",
-    "semi": "error"
+    "react/function-component-definition": ["error", { "namedComponents": "arrow-function" }]
   }
 }
