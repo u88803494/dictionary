@@ -1,9 +1,9 @@
-import { FC, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 import { Menu, QuestionMark } from '../svg';
 
-const Navbar: FC = () => {
+const Navbar = () => {
   const [showNavigation, setShowNavigation] = useState(false);
 
   useEffect(() => {

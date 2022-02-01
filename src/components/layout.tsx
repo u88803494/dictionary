@@ -1,9 +1,13 @@
 import Head from 'next/head';
-import { FC } from 'react';
+import { ReactNode } from 'react';
 
 import Navbar from './navbar';
 
-const Layout: FC = ({ children }) => {
+interface ILayout {
+  children: ReactNode;
+}
+
+const Layout = ({ children }: ILayout) => {
   return (
     <>
       <Head>

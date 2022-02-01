@@ -1,6 +1,4 @@
-import { FC } from 'react';
-
-const QuestionMark: FC = () => {
+const QuestionMark = () => {
   return (
     <svg viewBox="0 0 30 30" className="h-6 w-6 fill-current">
       <path
