@@ -14,4 +14,4 @@ const dictionary = createSlice({
 
 export const actions = dictionary;
 
-export default dictionary.reducer;
+export const { reducer } = dictionary;
