@@ -1,8 +1,8 @@
 import type { NextPage } from 'next';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { decrement, increment } from '../features/counter/counter.slice';
-import { RootState } from '../features/store';
+import { decrement, increment } from 'features/counter/counter.slice';
+import { RootState } from 'features/store';
 
 const Home: NextPage = () => {
   const dispatch = useDispatch();
