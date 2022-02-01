@@ -16,8 +16,8 @@ const Layout = ({ children }: ILayout) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <div className="w-screen min-h-screen pt-16 px-6">
-        <main className="w-screen-xl max-w-screen-xl mx-auto">{children}</main>
+      <div className="min-h-screen w-screen px-6 pt-16">
+        <main className="w-screen-xl mx-auto max-w-screen-xl">{children}</main>
       </div>
     </>
   );
