@@ -9,7 +9,7 @@ const Navbar = () => {
   const dispatch = useAppDispatch();
 
   const [showNavigation, setShowNavigation] = useState(false);
-  const [word, setWord] = useState('得');
+  const [word, setWord] = useState('算計');
 
   useEffect(() => {
     const handleResize = () => {

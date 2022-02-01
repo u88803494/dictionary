@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { IDictionary } from './dictionary.d';
+import { IHeteronyms } from './dictionary.d';
 import { getDefinitions } from './dictionary.service';
 
-const initialState: IDictionary = {
-  definitions: [],
+const initialState: IHeteronyms = {
+  heteronyms: [],
 };
 
 const dictionary = createSlice({
@@ -13,7 +13,7 @@ const dictionary = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getDefinitions.fulfilled, (state, action) => {
-      state.definitions = action.payload;
+      state.heteronyms = action.payload;
     });
   },
 });

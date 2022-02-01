@@ -1,3 +1,3 @@
-export interface IDictionary {
-  definitions: [];
+export interface IHeteronyms {
+  heteronyms: [];
 }
