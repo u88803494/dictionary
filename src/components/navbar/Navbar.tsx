@@ -6,9 +6,10 @@ import { useAppDispatch } from 'features/hook';
 import { getDefinitions } from 'features/dictionary/dictionary.service';
 
 const Navbar = () => {
-  const [showNavigation, setShowNavigation] = useState(false);
-  const [word, setWord] = useState('');
   const dispatch = useAppDispatch();
+
+  const [showNavigation, setShowNavigation] = useState(false);
+  const [word, setWord] = useState('得');
 
   useEffect(() => {
     const handleResize = () => {
@@ -60,10 +61,11 @@ const Navbar = () => {
           <div className="item-center flex">
             <div className="flex items-center">
               <input
-                className="focus:shadow-outline mx-4 h-8 rounded bg-gray-900 px-2 text-sm leading-tight text-gray-400 placeholder-gray-200 focus:outline-none"
+                className="focus:shadow-outline mx-4 h-10 rounded bg-gray-900 px-2 text-lg leading-tight text-gray-400 placeholder-gray-200 focus:outline-none"
                 onChange={handleChangeWord}
                 placeholder="search"
                 type="text"
+                value={word}
               />
             </div>
             <button className="hidden text-gray-900 hover:text-gray-700 md:block">
