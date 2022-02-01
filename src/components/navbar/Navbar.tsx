@@ -1,10 +1,14 @@
-import { useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import Link from 'next/link';
 
 import { Menu, QuestionMark } from '../svg';
+import { useAppDispatch } from 'features/hook';
+import { getDefinitions } from 'features/dictionary/dictionary.service';
 
 const Navbar = () => {
   const [showNavigation, setShowNavigation] = useState(false);
+  const [word, setWord] = useState('');
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     const handleResize = () => {
@@ -16,6 +20,14 @@ const Navbar = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  useEffect(() => {
+    dispatch(getDefinitions(word));
+  }, [word]);
+
+  const handleChangeWord = (e: ChangeEvent<HTMLInputElement>) => {
+    setWord(e.target.value);
+  };
 
   const handleShowNavigation = () => {
     setShowNavigation(!showNavigation);
@@ -49,6 +61,7 @@ const Navbar = () => {
             <div className="flex items-center">
               <input
                 className="h-8 mx-4 px-2 leading-tight text-sm text-gray-400 bg-gray-900 rounded placeholder-gray-200 focus:outline-none focus:shadow-outline"
+                onChange={handleChangeWord}
                 placeholder="search"
                 type="text"
               />
