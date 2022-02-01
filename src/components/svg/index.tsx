@@ -1,4 +1,4 @@
-import Menu from './Menu';
-import QuestionMark from './QuestionMark';
+import Menu from './menu';
+import QuestionMark from './questionMark';
 
 export { Menu, QuestionMark };
