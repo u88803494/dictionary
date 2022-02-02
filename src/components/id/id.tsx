@@ -1,6 +1,6 @@
 import { useAppSelector } from 'redux/hook';
 
-import Pronunciation from './pronunciation';
+import Pronunciation from './ip';
 
 const Dictionary = (): JSX.Element => {
   const heteronyms = useAppSelector((state) => state.dictionary.heteronyms);
