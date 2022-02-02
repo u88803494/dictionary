@@ -37,6 +37,7 @@ const Navbar = (): JSX.Element => {
 
   const navigationDisplay = showNavigation ? '' : 'hidden';
   const navigationMdStyle = 'md:static md:flex md:items-center md:justify-between md:shadow-none';
+  const inputOnFocusStyle = 'focus:outline-none focus:shadow-outline ';
 
   return (
     <nav className="fixed h-16 w-screen border-b border-slate-700 bg-slate-900 px-6 text-gray-100 opacity-90">
@@ -59,9 +60,9 @@ const Navbar = (): JSX.Element => {
         </div>
         <div className="flex">
           <div className="item-center flex">
-            <div className="flex items-center">
+            <div className="flex items-center px-4">
               <input
-                className="focus:shadow-outline mx-4 h-10 rounded bg-slate-600 px-2 text-lg leading-tight placeholder-gray-200 focus:outline-none"
+                className={`h-10 w-32 rounded bg-slate-600 px-2 text-lg leading-tight placeholder-gray-400 sm:w-52 ${inputOnFocusStyle}`}
                 onChange={handleChangeWord}
                 placeholder="search"
                 type="text"
