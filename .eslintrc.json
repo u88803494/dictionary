@@ -22,6 +22,10 @@
     "prettier"
   ],
   "rules": {
+    "array-callback-return": "error",
+    "no-else-return": "error",
+    "no-fallthrough": "error",
+    "no-useless-return": "error",
     "no-var": "error",
     "react/function-component-definition": [
       "error",
