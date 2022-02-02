@@ -6,7 +6,7 @@ import { getDefinitions } from 'redux/dictionary/service';
 import { Menu, QuestionMark } from '../svg';
 import { navbarItems } from './config';
 
-const Navbar = () => {
+const Navbar = (): JSX.Element => {
   const dispatch = useAppDispatch();
 
   const [showNavigation, setShowNavigation] = useState(false);

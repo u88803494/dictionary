@@ -7,7 +7,7 @@ interface ILayout {
   children: ReactNode;
 }
 
-const Layout = ({ children }: ILayout) => {
+const Layout = ({ children }: ILayout): JSX.Element => {
   return (
     <>
       <Head>
