@@ -10,7 +10,7 @@ const Navbar = (): JSX.Element => {
   const dispatch = useAppDispatch();
 
   const [showNavigation, setShowNavigation] = useState(false);
-  const [word, setWord] = useState('得');
+  const [word, setWord] = useState('新');
 
   useEffect(() => {
     const handleResize = () => {
