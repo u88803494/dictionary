@@ -1,1 +1,1 @@
-export { default } from './sdmfksfmd';
+export { default } from './navbar';
