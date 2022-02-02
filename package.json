@@ -12,7 +12,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint '**/*.{js,jsx,ts,tsx}' --ext ts --ext tsx --ext js --fix",
+    "lint": "eslint '**/*.{js,jsx,ts,tsx}' --ext ts --ext tsx --ext js --fix --max-warnings=0",
     "format": "prettier '**/*.{js,jsx,ts,tsx}' --write",
     "type-check": "tsc --pretty -noEmit",
     "prepare": "husky install"

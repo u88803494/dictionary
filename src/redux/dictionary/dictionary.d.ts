@@ -6,8 +6,21 @@ interface IDefinition {
   type?: string;
 }
 
-export interface IHeteronyms {
-  heteronyms: [];
+interface IPronunciation {
+  key?: string;
+  pronunciation1?: string;
+  pronunciation2?: string;
+  word?: string;
+}
+
+interface IHeteronyms {
+  key: string;
+  pronunciations: Array<IPronunciation>;
+  typeDefinitions: Array<IDefinition>;
+}
+
+export interface IDictionary {
+  heteronyms: Array<IHeteronyms>;
 }
 
 export interface IWordDetail {
