@@ -16,7 +16,7 @@ const Layout = ({ children }: ILayout): JSX.Element => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <div className="min-h-screen w-screen bg-slate-800 px-6 pt-20 text-gray-100">
+      <div className="min-h-screen w-screen bg-slate-800 px-6 py-20 text-gray-100">
         <main className="w-screen-xl mx-auto max-w-screen-xl">{children}</main>
       </div>
     </>

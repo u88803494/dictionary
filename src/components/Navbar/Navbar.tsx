@@ -39,7 +39,7 @@ const Navbar = (): JSX.Element => {
   const navigationMdStyle = 'md:static md:flex md:items-center md:justify-between md:shadow-none';
 
   return (
-    <nav className="fixed h-16 w-screen border-b border-slate-700 bg-slate-900 px-6 text-gray-100">
+    <nav className="fixed h-16 w-screen border-b border-slate-700 bg-slate-900 px-6 text-gray-100 opacity-90">
       <div className="w-screen-xl relative mx-auto flex h-full max-w-screen-xl justify-between">
         <div className="flex items-center">
           <div className="hover whitespace-nowrap text-3xl font-bold">新典</div>
