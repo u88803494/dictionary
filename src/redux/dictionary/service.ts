@@ -13,8 +13,8 @@ export const getDefinitions = createAsyncThunk('dictionary/getDefinitions', asyn
       key: bopomofo + bopomofo2 + pinyin,
       pronunciations: bopomofo.split(' ').map((pronunciation, i) => ({
         key: pronunciation + splitPinyin[i] + word[i],
-        pronunciation1: pronunciation,
-        pronunciation2: splitPinyin[i],
+        pronunciation1: pronunciation.replace('（語音）', ''),
+        pronunciation2: splitPinyin[i].replace('（語音）', ''),
         word: word[i],
       })),
       wordClassesDefinitions: definitionWordClasses.map((wordClass) => ({

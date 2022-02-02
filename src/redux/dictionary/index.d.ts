@@ -14,8 +14,8 @@ export interface IPronunciation {
 }
 
 interface IWordClassesDefinition {
-  wordClass: string;
   definitions: Array<IDefinition>;
+  wordClass: string;
 }
 
 export interface IHeteronym {
