@@ -1,7 +1,13 @@
 import type { NextPage } from 'next';
 
+import Dictionary from 'components/Dictionary';
+
 const Home: NextPage = () => {
-  return <>123</>;
+  return (
+    <>
+      <Dictionary />
+    </>
+  );
 };
 
 export default Home;

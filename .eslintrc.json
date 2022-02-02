@@ -16,9 +16,23 @@
       "tsx": true
     }
   },
-  "extends": ["next/core-web-vitals", "plugin:@typescript-eslint/recommended", "prettier"],
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
   "rules": {
+    "array-callback-return": "error",
+    "no-console": "warn",
+    "no-else-return": "error",
+    "no-fallthrough": "error",
+    "no-useless-return": "error",
     "no-var": "error",
-    "react/function-component-definition": ["error", { "namedComponents": "arrow-function" }]
+    "react/function-component-definition": [
+      "error",
+      {
+        "namedComponents": "arrow-function"
+      }
+    ]
   }
 }
