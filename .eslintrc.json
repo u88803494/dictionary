@@ -23,6 +23,7 @@
   ],
   "rules": {
     "array-callback-return": "error",
+    "no-console": "warn",
     "no-else-return": "error",
     "no-fallthrough": "error",
     "no-useless-return": "error",

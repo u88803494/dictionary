@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 
-import Dictionary from 'features/dictionary';
+import Dictionary from 'components/dictionary';
 
 const Home: NextPage = () => {
   return (

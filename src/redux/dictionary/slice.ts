@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { IHeteronyms } from './dictionary.d';
-import { getDefinitions } from './dictionary.service';
+import { IHeteronyms } from './dictionary';
+import { getDefinitions } from './service';
 
 const initialState: IHeteronyms = {
   heteronyms: [],

@@ -1,8 +1,8 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 import Link from 'next/link';
 
-import { useAppDispatch } from 'features/hook';
-import { getDefinitions } from 'features/dictionary/dictionary.service';
+import { useAppDispatch } from 'redux/hook';
+import { getDefinitions } from 'redux/dictionary/service';
 import { Menu, QuestionMark } from '../svg';
 import { navbarItems } from './config';
 
