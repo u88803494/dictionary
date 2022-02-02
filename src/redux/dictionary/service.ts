@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { getRawDefinitions } from './api';
-import { IWordDetail } from './dictionary';
+import { IWordDetail } from '.';
 
 export const getDefinitions = createAsyncThunk('dictionary/getDefinitions', async (word: string) => {
   const { data } = await getRawDefinitions(word);

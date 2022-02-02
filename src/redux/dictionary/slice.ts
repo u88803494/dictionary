@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { IDictionary } from './dictionary';
+import { IDictionary } from '.';
 import { getDefinitions } from './service';
 
 const initialState: IDictionary = {

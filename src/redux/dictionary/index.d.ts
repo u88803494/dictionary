@@ -6,7 +6,7 @@ interface IDefinition {
   type?: string;
 }
 
-interface IPronunciation {
+export interface IPronunciation {
   key?: string;
   pronunciation1?: string;
   pronunciation2?: string;
