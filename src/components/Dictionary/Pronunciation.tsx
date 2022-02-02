@@ -2,7 +2,7 @@ import React from 'react';
 
 import { IPronunciation } from 'redux/dictionary';
 
-const Pronunciation = ({ pronunciation1 = '', pronunciation2 = '', word = '' }: IPronunciation): JSX.Element => {
+const Pronunciation = ({ pronunciation1, pronunciation2, word }: IPronunciation): JSX.Element => {
   const pronunciations = [pronunciation1, pronunciation2];
   return (
     <div className="flex text-slate-200">

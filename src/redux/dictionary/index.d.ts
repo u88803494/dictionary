@@ -7,10 +7,10 @@ interface IDefinition {
 }
 
 export interface IPronunciation {
-  key?: string;
-  pronunciation1?: string;
-  pronunciation2?: string;
-  word?: string;
+  key: string;
+  pronunciation1: string;
+  pronunciation2: string;
+  word: string;
 }
 
 interface IHeteronyms {
