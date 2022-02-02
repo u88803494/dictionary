@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { ReactNode } from 'react';
 
-import Navbar from './inb';
+import Navbar from '../Navbar';
 
 interface ILayout {
   children: ReactNode;
