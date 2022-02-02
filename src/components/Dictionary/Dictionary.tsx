@@ -1,4 +1,4 @@
-import { IHeteronyms } from 'redux/dictionary';
+import { IHeteronym } from 'redux/dictionary';
 import { useAppSelector } from 'redux/hook';
 import Pronunciation from './Pronunciation';
 
@@ -7,7 +7,7 @@ const Dictionary = (): JSX.Element => {
 
   return (
     <>
-      {heteronyms.map(({ key, pronunciations }: IHeteronyms) => {
+      {heteronyms.map(({ key, pronunciations }: IHeteronym) => {
         return (
           <div className="space-y-6" key={key}>
             <div className="flex space-x-6">

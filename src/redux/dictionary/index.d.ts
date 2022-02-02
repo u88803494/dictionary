@@ -13,14 +13,19 @@ export interface IPronunciation {
   word: string;
 }
 
-interface IHeteronyms {
+interface IWordClassesDefinition {
+  wordClass: string;
+  definitions: Array<IDefinition>;
+}
+
+export interface IHeteronym {
   key: string;
   pronunciations: Array<IPronunciation>;
-  typeDefinitions: Array<IDefinition>;
+  wordClassesDefinitions: Array<IWordClassesDefinition>;
 }
 
 export interface IDictionary {
-  heteronyms: Array<IHeteronyms>;
+  heteronyms: Array<IHeteronym>;
 }
 
 export interface IWordDetail {
