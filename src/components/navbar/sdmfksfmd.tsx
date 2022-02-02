@@ -24,7 +24,7 @@ const Navbar = () => {
 
   useEffect(() => {
     dispatch(getDefinitions(word));
-  }, [word]);
+  }, [dispatch, word]);
 
   const handleChangeWord = (e: ChangeEvent<HTMLInputElement>) => {
     setWord(e.target.value);
