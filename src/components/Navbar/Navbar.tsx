@@ -13,13 +13,15 @@ const Navbar = (): JSX.Element => {
   const [word, setWord] = useState('新');
 
   useEffect(() => {
-    const handleResize = () => {
+    const handleCloseNavList = () => {
       setShowNavigation(false);
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleCloseNavList);
+    window.addEventListener('scroll', handleCloseNavList);
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('resize', handleCloseNavList);
+      window.removeEventListener('scroll', handleCloseNavList);
     };
   }, []);
 
@@ -77,7 +79,7 @@ const Navbar = (): JSX.Element => {
           </div>
           <div className="flex items-center md:hidden">
             <button
-              className="block text-white hover:text-gray-100 focus:text-gray-100 focus:outline-none"
+              className="block text-white hover:text-slate-100 focus:text-slate-100 focus:outline-none"
               onClick={handleShowNavigation}
               type="button"
             >
