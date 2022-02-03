@@ -40,10 +40,10 @@ const Navbar = (): JSX.Element => {
   const inputOnFocusStyle = 'focus:outline-none focus:shadow-outline ';
 
   return (
-    <nav className="fixed h-16 w-screen border-b border-slate-700 bg-slate-900 px-6 text-gray-100 opacity-90">
+    <nav className="fixed h-16 w-screen border-b border-slate-700 bg-slate-900 px-6 text-slate-100 opacity-90">
       <div className="w-screen-xl relative mx-auto flex h-full max-w-screen-xl justify-between">
         <div className="flex items-center">
-          <div className="hover whitespace-nowrap text-3xl font-bold">新典</div>
+          <div className="select-none whitespace-nowrap text-3xl font-bold hover:text-white">新典</div>
           <div
             className={`absolute top-[60px] -right-6 bg-slate-900 shadow-md shadow-slate-900 ${navigationMdStyle} ${navigationDisplay}`}
           >
