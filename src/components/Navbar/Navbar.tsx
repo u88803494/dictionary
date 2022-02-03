@@ -72,7 +72,7 @@ const Navbar = (): JSX.Element => {
               />
             </div>
             <button className="hidden text-white hover:text-gray-100 md:block">
-              <Menu />
+              <QuestionMark />
             </button>
           </div>
           <div className="flex items-center md:hidden">
@@ -81,7 +81,7 @@ const Navbar = (): JSX.Element => {
               onClick={handleShowNavigation}
               type="button"
             >
-              <QuestionMark />
+              <Menu />
             </button>
           </div>
         </div>
