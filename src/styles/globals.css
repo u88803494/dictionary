@@ -9,7 +9,7 @@
 }
 
 @layer components {
-  .nav-list {
+  .menu {
     @apply absolute top-[60px] -right-6 bg-slate-900 shadow-md shadow-slate-900;
   }
 
@@ -23,8 +23,8 @@
   }
 }
 
-@media screen(md) {
-  .nav-list {
+@media screen(sm) {
+  .menu {
     @apply static flex items-center justify-between shadow-none;
   }
 }

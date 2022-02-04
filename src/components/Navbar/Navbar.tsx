@@ -9,7 +9,7 @@ import { navbarItems } from './config';
 const Navbar = (): JSX.Element => {
   const dispatch = useAppDispatch();
 
-  const [showNavList, setShowNavigation] = useState(false);
+  const [showMenu, setShowNavigation] = useState(false);
   const [word, setWord] = useState('新');
 
   useEffect(() => {
@@ -34,10 +34,10 @@ const Navbar = (): JSX.Element => {
   };
 
   const handleShowNavList = () => {
-    setShowNavigation(!showNavList);
+    setShowNavigation(!showMenu);
   };
 
-  const navListDisplay = showNavList ? '' : 'hidden';
+  const menuDisplay = showMenu ? '' : 'hidden';
 
   return (
     <nav className="fixed h-16 w-screen border-b border-slate-700 bg-slate-900/95 px-6 text-slate-100">
@@ -46,12 +46,12 @@ const Navbar = (): JSX.Element => {
           <div className="select-none whitespace-nowrap text-3xl font-bold hover:text-white">
             <Link href="/">新典</Link>
           </div>
-          <div className={`nav-list ${navListDisplay}`}>
-            <div className="flex flex-col px-5 py-2 md:flex-row">
+          <div className={`menu ${menuDisplay}`}>
+            <div className="flex flex-col px-5 py-2 sm:flex-row">
               {navbarItems.map(
                 ({ path, pathName }): JSX.Element => (
                   <Link key={path} href={path}>
-                    <a className="rounded py-2 px-2 hover:bg-slate-400 hover:font-medium hover:text-black md:mx-2">
+                    <a className="rounded py-2 px-2 hover:bg-slate-400 hover:font-medium hover:text-black sm:mx-2">
                       {pathName}
                     </a>
                   </Link>
@@ -71,11 +71,11 @@ const Navbar = (): JSX.Element => {
                 value={word}
               />
             </div>
-            <button className="hidden text-white hover:text-gray-100 md:block">
+            <button className="hidden text-white hover:text-gray-100 sm:block">
               <QuestionMark />
             </button>
           </div>
-          <div className="flex items-center md:hidden">
+          <div className="flex items-center sm:hidden">
             <button
               className="block text-white hover:text-slate-100 focus:text-slate-100 focus:outline-none"
               onClick={handleShowNavList}
