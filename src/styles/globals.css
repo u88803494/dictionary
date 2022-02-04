@@ -10,7 +10,8 @@
 
 @layer components {
   .menu {
-    @apply absolute top-[60px] -right-6 bg-slate-900 shadow-md shadow-slate-900;
+    @apply absolute top-[60px] bg-slate-900 shadow-md shadow-slate-900;
+    @apply origin-top transform transition;
   }
 
   .input-search-word {
@@ -26,5 +27,6 @@
 @media screen(sm) {
   .menu {
     @apply static flex items-center justify-between shadow-none;
+    @apply transform-none transition-none;
   }
 }

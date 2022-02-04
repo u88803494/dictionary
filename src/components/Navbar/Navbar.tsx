@@ -37,7 +37,8 @@ const Navbar = (): JSX.Element => {
     setShowNavigation(!showMenu);
   };
 
-  const menuDisplay = showMenu ? '' : 'hidden';
+  // There will be animation when resizing, use -right-full to make it animate offscreen.
+  const menuDisplay = showMenu ? 'scale-100 -right-6' : 'scale-0 -right-full';
 
   return (
     <nav className="fixed h-16 w-screen border-b border-slate-700 bg-slate-900/95 px-6 text-slate-100">
