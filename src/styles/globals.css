@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-900;
+  }
+}
+
+@layer components {
+  .nav-list {
+    @apply absolute top-[60px] -right-6 bg-slate-900 shadow-md shadow-slate-900;
+  }
+
+  .input-search-word {
+    @apply h-10 w-32 rounded bg-slate-600 px-2;
+    @apply text-lg leading-tight placeholder-gray-400;
+  }
+
+  .input-search-word:focus {
+    @apply outline-none;
+  }
+}
+
+@media screen(md) {
+  .nav-list {
+    @apply static flex items-center justify-between shadow-none;
+  }
+}
