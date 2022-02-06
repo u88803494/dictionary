@@ -8,6 +8,7 @@
 - 支援手機瀏覽
 - 電腦瀏覽
 - Break point 設置在 640px
+- 串接[萌典 API](https://github.com/g0v/moedict-webkit#api-%E8%AA%AA%E6%98%8E)
 
 ### 開發面功能
 - Commit 時，使用 Prettier 搭配 ESlint 自動檢查
