@@ -8,13 +8,14 @@ const WordClass = ({ definitions, wordClass }: IWordClassesDefinition): JSX.Elem
       </div>
     )}
     {definitions.map(
-      ({ def, example, quote, synonyms }: IDefinition, index: number): JSX.Element => (
+      ({ def, example, link, quote, synonyms }: IDefinition, index: number): JSX.Element => (
         <div className="my-3" key={def}>
-          <div className="text-lg font-medium">{`${index + 1}. ${def}`}</div>
+          {def && <div className="text-lg font-medium">{`${index + 1}. ${def}`}</div>}
           <div className="pl-4 font-serif">
             <div>{example}</div>
             <div>{quote}</div>
             <div>{synonyms}</div>
+            {link && link.map((data) => <div key={data}>{data}</div>)}
           </div>
         </div>
       )

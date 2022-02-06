@@ -1,6 +1,7 @@
 interface IDefinition {
-  def: string;
+  def?: string;
   example?: string;
+  link?: Array<string>;
   quote?: string | Array<string>;
   synonyms?: string;
   type?: string;

@@ -9,10 +9,10 @@ export const getDefinitions = createAsyncThunk('dictionary/getDefinitions', asyn
   return data.heteronyms.map(({ bopomofo, bopomofo2, definitions, pinyin }: IWordDetail) => {
     const definitionWordClasses = [...new Set(definitions.map((def) => def.type))];
     const splitPinyin = pinyin.split(' ');
-    const filteredDefinitions = definitions
-      .filter((definition) => !findIncorrectDefinition(definition.def))
-      .map(({ def, ...definitionData }) => ({ ...definitionData, def: parsePolyphonicTag(def) }));
     const filteredBopomofo = bopomofo.split(' （又音）')[0];
+    const filteredDefinitions = definitions
+      .filter(({ def = '' }) => !findIncorrectDefinition(def))
+      .map(({ def = '', ...definitionData }) => ({ ...definitionData, def: parsePolyphonicTag(def) }));
 
     return {
       key: bopomofo + bopomofo2 + pinyin,
