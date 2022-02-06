@@ -23,3 +23,5 @@ export const findIncorrectDefinition = (definition: string): boolean => {
   if (findReferences) return findReferences.length === 6;
   return false;
 };
+
+export const getWordFromUrl = (hashRouter: string) => decodeURIComponent(hashRouter.replace(/(\/|#)/g, ''));

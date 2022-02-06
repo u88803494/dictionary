@@ -3,15 +3,13 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 
-import { useAppDispatch } from 'redux/hook';
-import { getDefinitions } from 'redux/dictionary/service';
 import { Menu, QuestionMark } from '../svg';
 import { navbarItems } from './config';
+import { getWordFromUrl } from 'utils/dictionary';
 
 const Navbar = (): JSX.Element => {
-  const dispatch = useAppDispatch();
   const router = useRouter();
-  const word: string = decodeURIComponent(router.asPath.replace(/(\/|#)/g, ''));
+  const word: string = getWordFromUrl(router.asPath);
 
   const [showMenu, setShowNavigation] = useState(false);
 
@@ -27,14 +25,6 @@ const Navbar = (): JSX.Element => {
       window.removeEventListener('scroll', handleCloseNavList);
     };
   }, []);
-
-  useEffect(() => {
-    if (!word) {
-      dispatch(getDefinitions('新'));
-      return;
-    }
-    dispatch(getDefinitions(word));
-  }, [dispatch, word]);
 
   const handleChangeWord = (e: ChangeEvent<HTMLInputElement>) => {
     router.push({
