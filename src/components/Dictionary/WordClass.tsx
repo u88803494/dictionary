@@ -1,4 +1,4 @@
-import type { IDefinition, IWordClassesDefinition } from 'redux/dictionary';
+import type { IDefinition, IWordClassesDefinition } from 'types/dictionary';
 
 const WordClass = ({ definitions, wordClass }: IWordClassesDefinition): JSX.Element => (
   <div className="mb-8">

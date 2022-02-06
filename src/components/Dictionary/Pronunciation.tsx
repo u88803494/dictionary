@@ -1,4 +1,4 @@
-import type { IPronunciation } from 'redux/dictionary';
+import type { IPronunciation } from 'types/dictionary';
 
 const Pronunciation = (props: IPronunciation): JSX.Element => {
   const { pronunciation1, pronunciation2, word } = props;

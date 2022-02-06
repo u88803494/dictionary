@@ -1,4 +1,4 @@
-import type { IHeteronym, IWordClassesDefinition } from 'redux/dictionary';
+import type { IHeteronym, IWordClassesDefinition } from 'types/dictionary';
 import { useAppSelector } from 'redux/hook';
 import Pronunciation from './Pronunciation';
 import WordClass from './WordClass';
