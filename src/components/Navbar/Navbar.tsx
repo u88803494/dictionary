@@ -1,5 +1,6 @@
 import type { ChangeEvent } from 'react';
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 import { useAppDispatch } from 'redux/hook';
@@ -9,9 +10,10 @@ import { navbarItems } from './config';
 
 const Navbar = (): JSX.Element => {
   const dispatch = useAppDispatch();
+  const router = useRouter();
+  const word: string = decodeURIComponent(router.asPath.replace(/(\/|#)/g, ''));
 
   const [showMenu, setShowNavigation] = useState(false);
-  const [word, setWord] = useState('新');
 
   useEffect(() => {
     const handleCloseNavList = () => {
@@ -27,11 +29,15 @@ const Navbar = (): JSX.Element => {
   }, []);
 
   useEffect(() => {
+    if (!word) {
+      dispatch(getDefinitions('新'));
+      return;
+    }
     dispatch(getDefinitions(word));
   }, [dispatch, word]);
 
   const handleChangeWord = (e: ChangeEvent<HTMLInputElement>) => {
-    setWord(e.target.value);
+    router.push(`#${e.target.value}`);
   };
 
   const handleShowNavList = () => {
