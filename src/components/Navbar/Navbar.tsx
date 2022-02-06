@@ -37,7 +37,10 @@ const Navbar = (): JSX.Element => {
   }, [dispatch, word]);
 
   const handleChangeWord = (e: ChangeEvent<HTMLInputElement>) => {
-    router.push(`#${e.target.value}`);
+    router.push({
+      pathname: '/',
+      hash: e.target.value,
+    });
   };
 
   const handleShowNavList = () => {
@@ -71,13 +74,15 @@ const Navbar = (): JSX.Element => {
         <div className="flex">
           <div className="item-center flex">
             <div className="flex items-center px-4">
-              <input
-                className={`input-search-word focus:shadow-outline focus:outline-none sm:w-52`}
-                onChange={handleChangeWord}
-                placeholder="search"
-                type="text"
-                value={word}
-              />
+              {router.pathname === '/' && (
+                <input
+                  className={`input-search-word focus:shadow-outline focus:outline-none sm:w-52`}
+                  onChange={handleChangeWord}
+                  placeholder="search"
+                  type="text"
+                  value={word}
+                />
+              )}
             </div>
             <button className="hidden text-white hover:text-gray-100 sm:block">
               <QuestionMark />
