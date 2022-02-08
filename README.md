@@ -51,7 +51,7 @@
 
 ## 畫面效果
 ### Dropdown 動畫展示
-![Dropdown](https://filedn.eu/lE3dlSw1QGLmQQNoPyEqQVR/Image/search_feature.gif)
+![Dropdown](https://filedn.eu/lE3dlSw1QGLmQQNoPyEqQVR/Image/navbar-toggle.gif)
 
 ### Dropdown 自動收起
 在螢幕寬度改變跟捲動的時候自動收起 Dropdown
