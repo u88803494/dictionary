@@ -1,4 +1,4 @@
-import { IDefinition, IWordClassesDefinition } from 'redux/dictionary';
+import type { IDefinition, IWordClassesDefinition } from 'types/dictionary';
 
 const WordClass = ({ definitions, wordClass }: IWordClassesDefinition): JSX.Element => (
   <div className="mb-8">
@@ -7,16 +7,19 @@ const WordClass = ({ definitions, wordClass }: IWordClassesDefinition): JSX.Elem
         <div className="flex w-8 justify-center bg-slate-300 text-slate-700">{wordClass}</div>
       </div>
     )}
-    {definitions.map(({ def, example, quote, synonyms }: IDefinition, index: number) => (
-      <div className="my-3" key={def}>
-        <div className="text-lg font-medium">{`${index + 1}. ${def}`}</div>
-        <div className="pl-4 font-serif">
-          <div>{example}</div>
-          <div>{quote}</div>
-          <div>{synonyms}</div>
+    {definitions.map(
+      ({ def, example, link, quote, synonyms }: IDefinition, index: number): JSX.Element => (
+        <div className="my-3" key={def}>
+          {def && <div className="text-lg font-medium">{`${index + 1}. ${def}`}</div>}
+          <div className="pl-4 font-serif">
+            <div>{example}</div>
+            <div>{quote}</div>
+            <div>{synonyms}</div>
+            {link && link.map((data) => <div key={data}>{data}</div>)}
+          </div>
         </div>
-      </div>
-    ))}
+      )
+    )}
   </div>
 );
 

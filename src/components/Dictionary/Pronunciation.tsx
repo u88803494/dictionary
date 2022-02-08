@@ -1,4 +1,4 @@
-import { IPronunciation } from 'redux/dictionary';
+import type { IPronunciation } from 'types/dictionary';
 
 const Pronunciation = (props: IPronunciation): JSX.Element => {
   const { pronunciation1, pronunciation2, word } = props;
@@ -9,11 +9,13 @@ const Pronunciation = (props: IPronunciation): JSX.Element => {
         {word}
       </div>
       <div className="flex flex-col justify-center text-xl">
-        {pronunciations.map((pronunciation: string) => (
-          <div key={pronunciation} className="flex justify-center whitespace-nowrap">
-            {pronunciation}
-          </div>
-        ))}
+        {pronunciations.map(
+          (pronunciation: string): JSX.Element => (
+            <div key={pronunciation} className="flex justify-center whitespace-nowrap">
+              {pronunciation}
+            </div>
+          )
+        )}
       </div>
     </div>
   );

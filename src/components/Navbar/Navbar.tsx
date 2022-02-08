@@ -1,85 +1,90 @@
-import { ChangeEvent, useEffect, useState } from 'react';
+import type { ChangeEvent } from 'react';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 
-import { useAppDispatch } from 'redux/hook';
-import { getDefinitions } from 'redux/dictionary/service';
 import { Menu, QuestionMark } from '../svg';
 import { navbarItems } from './config';
+import { getWordFromUrl } from 'utils/dictionary';
 
 const Navbar = (): JSX.Element => {
-  const dispatch = useAppDispatch();
+  const router = useRouter();
+  const word: string = getWordFromUrl(router.asPath);
 
-  const [showNavigation, setShowNavigation] = useState(false);
-  const [word, setWord] = useState('新');
+  const [showMenu, setShowNavigation] = useState(false);
 
   useEffect(() => {
-    const handleResize = () => {
+    const handleCloseNavList = () => {
       setShowNavigation(false);
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleCloseNavList);
+    window.addEventListener('scroll', handleCloseNavList);
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('resize', handleCloseNavList);
+      window.removeEventListener('scroll', handleCloseNavList);
     };
   }, []);
 
-  useEffect(() => {
-    dispatch(getDefinitions(word));
-  }, [dispatch, word]);
-
   const handleChangeWord = (e: ChangeEvent<HTMLInputElement>) => {
-    setWord(e.target.value);
+    router.push({
+      pathname: '/',
+      hash: e.target.value,
+    });
   };
 
-  const handleShowNavigation = () => {
-    setShowNavigation(!showNavigation);
+  const handleShowNavList = () => {
+    setShowNavigation(!showMenu);
   };
 
-  const navigationDisplay = showNavigation ? '' : 'hidden';
-  const navigationMdStyle = 'md:static md:flex md:items-center md:justify-between md:shadow-none';
-  const inputOnFocusStyle = 'focus:outline-none focus:shadow-outline ';
+  // There will be animation when resizing, use -right-full to make it animate offscreen.
+  const menuDisplay = showMenu ? 'scale-100 -right-6' : 'scale-0 -right-full';
 
   return (
-    <nav className="fixed h-16 w-screen border-b border-slate-700 bg-slate-900 px-6 text-gray-100 opacity-90">
+    <nav className="fixed h-16 w-screen border-b border-slate-700 bg-slate-900/95 px-6 text-slate-100">
       <div className="w-screen-xl relative mx-auto flex h-full max-w-screen-xl justify-between">
         <div className="flex items-center">
-          <div className="hover whitespace-nowrap text-3xl font-bold">新典</div>
-          <div
-            className={`absolute top-[60px] -right-6 bg-slate-900 shadow-md shadow-slate-900 ${navigationMdStyle} ${navigationDisplay}`}
-          >
-            <div className="flex flex-col px-5 py-2 md:flex-row">
-              {navbarItems.map(({ path, pathName }) => (
-                <Link key={path} href={path}>
-                  <a className="rounded py-2 px-2 hover:bg-slate-400 hover:font-medium hover:text-black md:mx-2">
-                    {pathName}
-                  </a>
-                </Link>
-              ))}
+          <div className="select-none whitespace-nowrap text-3xl font-bold hover:text-white">
+            <Link href="/">新典</Link>
+          </div>
+          <div className={`menu ${menuDisplay}`}>
+            <div className="flex flex-col px-5 py-2 sm:flex-row">
+              {navbarItems.map(
+                ({ path, pathName }): JSX.Element => (
+                  <Link key={path} href={path}>
+                    <a className="rounded py-2 px-2 hover:bg-slate-400 hover:font-medium hover:text-black sm:mx-2">
+                      {pathName}
+                    </a>
+                  </Link>
+                )
+              )}
             </div>
           </div>
         </div>
         <div className="flex">
           <div className="item-center flex">
             <div className="flex items-center px-4">
-              <input
-                className={`h-10 w-32 rounded bg-slate-600 px-2 text-lg leading-tight placeholder-gray-400 sm:w-52 ${inputOnFocusStyle}`}
-                onChange={handleChangeWord}
-                placeholder="search"
-                type="text"
-                value={word}
-              />
+              {router.pathname === '/' && (
+                <input
+                  className={`input-search-word focus:shadow-outline focus:outline-none sm:w-52`}
+                  onChange={handleChangeWord}
+                  placeholder="search"
+                  type="text"
+                  value={word}
+                />
+              )}
             </div>
-            <button className="hidden text-white hover:text-gray-100 md:block">
-              <Menu />
+            <button className="hidden text-white hover:text-gray-100 sm:block">
+              <QuestionMark />
             </button>
           </div>
-          <div className="flex items-center md:hidden">
+          <div className="flex items-center sm:hidden">
             <button
-              className="block text-white hover:text-gray-100 focus:text-gray-100 focus:outline-none"
-              onClick={handleShowNavigation}
+              className="block text-white hover:text-slate-100 focus:text-slate-100 focus:outline-none"
+              onClick={handleShowNavList}
               type="button"
             >
-              <QuestionMark />
+              <Menu />
             </button>
           </div>
         </div>
