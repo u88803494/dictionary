@@ -1,4 +1,6 @@
-import React from 'react';
+import type { NextPage } from 'next';
+
+import Card from 'components/Card';
 
 const data = [
   {
@@ -15,7 +17,7 @@ const data = [
             name: '神猜解多益 ULTIMATE 神上加神套組',
             slogan: '⾃學多益也能拿⾼分！坊間唯⼀，形同名師從旁教學的神猜解多益三書套組',
             shop_cover_image_url:
-              'https://public.wordup.com.tw/shop/books/bundle_god_guess_toeic_package/Cover_bundle_god_guess_to',
+              'https://public.wordup.com.tw/shop/books/bundle_god_guess_toeic_package/Cover_bundle_god_guess_toeic_package_new_D.png',
             students_count: 100,
             currency: 'TWD',
             list_price: '2000',
@@ -81,8 +83,24 @@ const data = [
   },
 ];
 
-const demo = () => {
-  return <div>{JSON.stringify(data).replace(/,/g, ', ')}</div>;
+const Demo: NextPage = () => {
+  const { custom, name } = data[0].attributes;
+  return (
+    <div className="flex w-full justify-center bg-white py-5 text-black">
+      <div className="w-[900px]">
+        <div className="my-2 flex items-center">
+          <hr className="grow" />
+          <div>{name}</div>
+          <hr className="grow" />
+        </div>
+        <div className="w-full">
+          {custom.map(({ id, attributes }) => (
+            <Card key={id} attributes={attributes} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 };
 
-export default demo;
+export default Demo;
