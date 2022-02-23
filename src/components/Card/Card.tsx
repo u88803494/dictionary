@@ -1,7 +1,7 @@
-import { ICard } from 'types/infoCard';
+import { IAttributes } from 'types/infoCard';
 
-const Card = (props: ICard): JSX.Element => {
-  return <div>{JSON.stringify(props).replace(/,/g, ', ')}</div>;
+const Card = (props: IAttributes): JSX.Element => {
+  return <div>{JSON.stringify(props).replaceAll(',', ', ')}</div>;
 };
 
 export default Card;

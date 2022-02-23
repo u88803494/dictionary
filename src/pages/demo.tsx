@@ -1,6 +1,8 @@
 import type { NextPage } from 'next';
+import { toCamel } from 'convert-keys';
 
 import Card from 'components/Card';
+import type { IAttributes } from 'types/infoCard';
 
 const data = [
   {
@@ -94,9 +96,27 @@ const Demo: NextPage = () => {
           <hr className="grow" />
         </div>
         <div className="w-full">
-          {custom.map(({ id, attributes }) => (
-            <Card key={id} attributes={attributes} />
-          ))}
+          {custom.map(({ id, attributes }) => {
+            const convertedAttributes = toCamel(attributes) as IAttributes;
+            return (
+              <Card
+                key={id}
+                averageRating={convertedAttributes.averageRating}
+                currency={convertedAttributes.currency}
+                learnWith={convertedAttributes.learnWith}
+                listPrice={convertedAttributes.listPrice}
+                name={convertedAttributes.name}
+                productableId={convertedAttributes.productableId}
+                productableType={convertedAttributes.productableType}
+                salePrice={convertedAttributes.salePrice}
+                shopCoverImageUrl={convertedAttributes.shopCoverImageUrl}
+                slogan={convertedAttributes.slogan}
+                studentsCount={convertedAttributes.studentsCount}
+                ratingCount={convertedAttributes.ratingCount}
+                tags={convertedAttributes.tags}
+              />
+            );
+          })}
         </div>
       </div>
     </div>
