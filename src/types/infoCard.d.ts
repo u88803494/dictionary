@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 export interface IAttributes {
   averageRating: number;
   currency: string;
@@ -12,4 +14,11 @@ export interface IAttributes {
   studentsCount: number;
   ratingCount: number;
   tags: Array<string>;
+}
+
+export interface ICardButton {
+  children: ReactNode;
+  color: string;
+  productableId: string;
+  productableType?: string;
 }
