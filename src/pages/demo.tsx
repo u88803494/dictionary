@@ -88,14 +88,14 @@ const data = [
 const Demo: NextPage = () => {
   const { custom, name } = data[0].attributes;
   return (
-    <div className="flex w-full justify-center overflow-hidden bg-slate-100 py-5 text-black">
-      <div className="w-screen max-w-xl">
+    <div className="flex h-[600px] w-full justify-center overflow-hidden bg-slate-100 py-5 text-black">
+      <div className="h-full w-screen max-w-3xl">
         <div className="my-2 flex items-center">
           <hr className="grow" />
           <div>{name}</div>
           <hr className="grow" />
         </div>
-        <div className="flex w-full snap-x space-x-3 overflow-x-scroll">
+        <div className="flex w-full snap-x space-x-3 overflow-x-scroll ">
           {custom.map(({ id, attributes }) => {
             const convertedAttributes = toCamel(attributes) as IAttributes;
             return (
