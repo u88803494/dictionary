@@ -88,8 +88,8 @@ const data = [
 const Demo: NextPage = () => {
   const { custom, name } = data[0].attributes;
   return (
-    <div className="flex w-full justify-center bg-slate-100 py-5 text-black">
-      <div className="max-w-xl">
+    <div className="flex w-full justify-center overflow-hidden bg-slate-100 py-5 text-black">
+      <div className="w-screen max-w-xl">
         <div className="my-2 flex items-center">
           <hr className="grow" />
           <div>{name}</div>
