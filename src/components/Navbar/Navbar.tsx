@@ -1,17 +1,26 @@
-import type { ChangeEvent } from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback, useRef } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 import { Menu, QuestionMark } from '../svg';
 import { navbarItems } from './config';
-import { getWordFromUrl } from 'utils/dictionary';
 
 const Navbar = (): JSX.Element => {
   const router = useRouter();
-  const word: string = getWordFromUrl(router.asPath);
+  const [word, setWord] = useState('');
+  const wordRef = useRef(word);
 
   const [showMenu, setShowNavigation] = useState(false);
+
+  const debouncedSearch = useCallback(
+    (value: string) => {
+      router.push({
+        pathname: '/',
+        hash: value,
+      });
+    },
+    [router]
+  );
 
   useEffect(() => {
     const handleCloseNavList = () => {
@@ -26,11 +35,22 @@ const Navbar = (): JSX.Element => {
     };
   }, []);
 
-  const handleChangeWord = (e: ChangeEvent<HTMLInputElement>) => {
-    router.push({
-      pathname: '/',
-      hash: e.target.value,
-    });
+  useEffect(() => {
+    wordRef.current = word;
+  }, [word]);
+
+  useEffect(() => {
+    if (router.pathname === '/') {
+      const timer = setTimeout(() => {
+        debouncedSearch(word);
+      }, 200);
+
+      return () => clearTimeout(timer);
+    }
+  }, [word, router.pathname, debouncedSearch]);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setWord(e.target.value);
   };
 
   const handleShowNavList = () => {
@@ -67,8 +87,9 @@ const Navbar = (): JSX.Element => {
               {router.pathname === '/' && (
                 <input
                   className={`input-search-word focus:shadow-outline focus:outline-none sm:w-52`}
-                  onChange={handleChangeWord}
+                  onChange={handleInputChange}
                   placeholder="search"
+                  inputMode="text"
                   type="text"
                   value={word}
                 />
