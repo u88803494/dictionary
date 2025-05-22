@@ -7,6 +7,9 @@
   "contributors": [
     "Hugh Lee <u88803494@gmail.com>"
   ],
+  "engines": {
+    "node": "18.x"
+  },
   "repository": "https://github.com/u88803494/dictionary",
   "scripts": {
     "dev": "next dev",
